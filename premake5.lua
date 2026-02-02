@@ -1,4 +1,4 @@
-workspace "cpp-CoreApp-project-template-with-OpenGL-and-ImGui"
+workspace "Iron-Lung"
     architecture "x64"        
     startproject "App"
     
@@ -80,8 +80,8 @@ project "Core"
         optimize "On"
     
     
-project "App"
-    location "App"
+project "Scene"
+    location "Scene"
     architecture "x64"
     kind "ConsoleApp"
     language "C++"
