@@ -66,7 +66,7 @@ namespace Project {
             PROJECT_CORE_ERROR("Failed to compile {0} shader!", (type == GL_VERTEX_SHADER) ? "Vertex" : "Fragment");
 
             int length; 
-            glGetShaderiv(id, GL_INFO_PROJECT_LENGTH, &length);
+            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
             
             if (length > 0) {
                 char* log = (char*)alloca(sizeof(char) * length);
@@ -106,7 +106,7 @@ namespace Project {
         if (linkStatus == GL_FALSE) {
             PROJECT_CORE_ERROR("Shader program linking FAILED!");
             int length;
-            glGetProgramiv(programID, GL_INFO_PROJECT_LENGTH, &length);
+            glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &length);
             if (length > 0) {
                 char* message = (char*)alloca(length * sizeof(char));
                 glGetProgramInfoLog(programID, length, NULL, message);
@@ -127,7 +127,7 @@ namespace Project {
         if (validateStatus == GL_FALSE) {
             PROJECT_CORE_ERROR("Shader program validation FAILED!");
             int length;
-            glGetProgramiv(programID, GL_INFO_PROJECT_LENGTH, &length);
+            glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &length);
             if (length > 0) {
                 char* message = (char*)alloca(length * sizeof(char));
                 glGetProgramInfoLog(programID, length, NULL, message);

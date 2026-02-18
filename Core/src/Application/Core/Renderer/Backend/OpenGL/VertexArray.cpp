@@ -11,7 +11,7 @@ namespace Project {
 
 	}
 
-	void VertexArray::AddVertexBuffer(VertexBuffer vb, VertexBufferLayout layout) {
+	void VertexArray::AddVertexBuffer(VertexBuffer& vb, const VertexBufferLayout& layout) {
 		vb.Bind();
 		std::vector<VertexBufferElement> elements = layout.GetElements();
 		unsigned int offset = 0;

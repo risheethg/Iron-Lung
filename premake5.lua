@@ -1,6 +1,6 @@
 workspace "Iron-Lung"
     architecture "x64"        
-    startproject "App"
+    startproject "Scene"
     
     configurations 
     {

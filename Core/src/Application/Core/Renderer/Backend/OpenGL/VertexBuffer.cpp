@@ -3,32 +3,19 @@
 
 namespace Project {
 
-	VertexArray::VertexArray() {
+	VertexBuffer::VertexBuffer() {
 		glGenVertexArrays(1, &m_RendererID);
 	}
 
-	VertexArray::~VertexArray() {
+	VertexBuffer::~VertexBuffer() {
 		glBindVertexArray(0);
 	}
 
-	void VertexArray::Bind() const {
+	void VertexBuffer::Bind() const {
 		glBindVertexArray(m_RendererID);
 	}
 
-	void VertexArray::Unbind() const {
+	void VertexBuffer::Unbind() const {
 		glBindVertexArray(0);
-	}
-
-	void VertexArray::AddVertexBuffer(VertexBuffer& vb,const VertexBufferLayout& layout) {
-		Bind();
-		vb.Bind();
-		std::vector<VertexBufferElement> elements = layout.GetElements();
-		unsigned int offset = 0;
-		for (unsigned int i = 0; i < elements.size(); i++) {
-			VertexBufferElement element = elements[i];
-			glEnableVertexAttribArray(i);
-			glVertexAttribPointer(i, element.count, element.type, element.normalized, layout.GetStride(), (const void*)offset);
-			offset += element.count * VertexBufferElement::GetSizeOfType(element.type);
-		}
 	}
 }
